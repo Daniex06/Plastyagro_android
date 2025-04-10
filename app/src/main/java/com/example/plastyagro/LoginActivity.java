@@ -19,12 +19,10 @@ public class LoginActivity extends AppCompatActivity {
     private EditText emailEditText;
     private EditText contrasenaEditText;
     private TextView registrarse;
-    private DatabaseHelper databaseHelper; // Declaramos la base de datos
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -39,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         registrarse = findViewById(R.id.textView);
 
         // Creamos la instancia de DatabaseHelper
-        databaseHelper = new DatabaseHelper(this);
+
 
         botonLogin.setOnClickListener(v -> {
 
@@ -51,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "No puedes dejar campos vacíos", Toast.LENGTH_SHORT).show();
             } else {
                 // Comprobamos si el usuario existe y si la contraseña es correcta
-                if (databaseHelper.verificarUsuario(email)) {
+                /*if (databaseHelper.verificarUsuario(email)) {
                     String storedPassword = databaseHelper.obtenerContrasena(email);
                     if (storedPassword.equals(password)) {
                         // Si las credenciales son correctas, obtenemos el perfil
@@ -87,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     // Usuario no encontrado
                     Toast.makeText(this, "Usuario no encontrado", Toast.LENGTH_SHORT).show();
-                }
+                }*/
             }
         });
 

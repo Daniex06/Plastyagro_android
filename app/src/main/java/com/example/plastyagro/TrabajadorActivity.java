@@ -15,7 +15,6 @@ import java.util.Locale;
 public class TrabajadorActivity extends AppCompatActivity {
 
     private Button buttonAcceso, buttonSalida;
-    private DatabaseHelper databaseHelper;
     private String emailUsuario;
 
     @Override
@@ -38,13 +37,13 @@ public class TrabajadorActivity extends AppCompatActivity {
             }
 
             // Inicializar la base de datos
-            databaseHelper = new DatabaseHelper(this);
+            /*databaseHelper = new DatabaseHelper(this);
             if (databaseHelper == null) {
                 Log.e("TrabajadorActivity", "Error: DatabaseHelper es null");
                 Toast.makeText(this, "Error al cargar la base de datos", Toast.LENGTH_LONG).show();
                 finish();
                 return;
-            }
+            }*/
 
             // Obtener el email del usuario desde el Intent
             Intent intent = getIntent();
@@ -72,15 +71,15 @@ public class TrabajadorActivity extends AppCompatActivity {
     private void registrarEvento(String tipoEvento) {
         try {
             // Obtener el usuarioId a partir del email
-            int usuarioId = databaseHelper.obtenerUsuarioId(emailUsuario);
+            //int usuarioId = databaseHelper.obtenerUsuarioId(emailUsuario);
 
-            if (usuarioId == -1) {
+         /*   if (usuarioId == -1) {
                 Log.e("TrabajadorActivity", "Usuario no encontrado en la base de datos");
                 Toast.makeText(this, "Error: Usuario no encontrado", Toast.LENGTH_LONG).show();
                 return;
-            }
+            }*/
 
-            Log.d("TrabajadorActivity", "Usuario ID obtenido: " + usuarioId);
+           // Log.d("TrabajadorActivity", "Usuario ID obtenido: " + usuarioId);
 
             // Obtener fecha y hora actual
             SimpleDateFormat sdfFecha = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
@@ -92,16 +91,16 @@ public class TrabajadorActivity extends AppCompatActivity {
             boolean dentroHorario = estaDentroDeHorario(hora);
 
             // Registrar en la base de datos
-            boolean exito = databaseHelper.registrarRegistro(usuarioId, fecha, hora, dentroHorario, tipoEvento);
+          //  boolean exito = databaseHelper.registrarRegistro(usuarioId, fecha, hora, dentroHorario, tipoEvento);
 
-            if (exito) {
+         /*   if (exito) {
                 String mensaje = tipoEvento.equals("entrada")
                         ? "Entrada registrada: " + fecha + " " + hora
                         : "Salida registrada: " + fecha + " " + hora;
                 Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(this, "Error al registrar " + tipoEvento, Toast.LENGTH_SHORT).show();
-            }
+            }*/
         } catch (Exception e) {
             Log.e("TrabajadorActivity", "Error en registrarEvento: ", e);
             Toast.makeText(this, "Error en el registro del evento", Toast.LENGTH_LONG).show();

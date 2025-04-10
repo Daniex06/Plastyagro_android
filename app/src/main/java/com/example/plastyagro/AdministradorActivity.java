@@ -17,9 +17,8 @@ import java.util.List;
 public class AdministradorActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private TrabajadorAdapter trabajadorAdapter;
     private List<Trabajador> listaTrabajadores;
-    private DatabaseHelper databaseHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,19 +29,19 @@ public class AdministradorActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         listaTrabajadores = new ArrayList<>();
-        databaseHelper = new DatabaseHelper(this);
 
-        cargarTrabajadores();
 
-        trabajadorAdapter = new TrabajadorAdapter(listaTrabajadores);
+       // cargarTrabajadores();
+
+      /*  trabajadorAdapter = new TrabajadorAdapter(listaTrabajadores);
         recyclerView.setAdapter(trabajadorAdapter);
-
+*/
 
         RecyclerView recyclerViewRegistros = findViewById(R.id.recyclerViewRegistros);
         recyclerViewRegistros.setLayoutManager(new LinearLayoutManager(this));
-        List<Registro> listaRegistros = databaseHelper.obtenerRegistros();
-        RegistroAdapter registroAdapter = new RegistroAdapter(listaRegistros);
-        recyclerViewRegistros.setAdapter(registroAdapter);
+     //   List<Registro> listaRegistros = databaseHelper.obtenerRegistros();
+     //   RegistroAdapter registroAdapter = new RegistroAdapter(listaRegistros);
+     //   recyclerViewRegistros.setAdapter(registroAdapter);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -65,7 +64,7 @@ public class AdministradorActivity extends AppCompatActivity {
 
     }
 
-    private void cargarTrabajadores() {
+    /*private void cargarTrabajadores() {
         try {
             List<Trabajador> trabajadores = databaseHelper.obtenerTrabajadores();
             if (trabajadores != null && !trabajadores.isEmpty()) {
@@ -79,6 +78,6 @@ public class AdministradorActivity extends AppCompatActivity {
             Log.e("AdministradorActivity", "Error al cargar los trabajadores: ", e);
             Toast.makeText(this, "Error al cargar los trabajadores", Toast.LENGTH_LONG).show();
         }
-    }
+    }*/
 }
 

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "868038604746",
+    "project_id": "plastyagro-82940",
+    "storage_bucket": "plastyagro-82940.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868038604746:android:9e06c32e3d56982e754133",
+        "android_client_info": {
+          "package_name": "com.android.plastyagro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrx3hXeTLfIgSeHb7sMu554ldwNkVH4Y8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868038604746:android:53ecf95423ae1f1d754133",
+        "android_client_info": {
+          "package_name": "com.example.plastyagro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrx3hXeTLfIgSeHb7sMu554ldwNkVH4Y8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

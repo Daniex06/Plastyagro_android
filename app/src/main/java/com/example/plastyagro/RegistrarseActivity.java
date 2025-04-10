@@ -79,15 +79,15 @@ public class RegistrarseActivity extends AppCompatActivity {
 
 
         firestore = FirebaseFirestore.getInstance();
-       // DocumentReference nuevoUsuarioRef = firestore.collection("usuario").document();
-        //String idGenerado = nuevoUsuarioRef.getId();
+       DocumentReference nuevoUsuarioRef = firestore.collection("usuario").document();
+        String idGenerado = nuevoUsuarioRef.getId();
         Map<String, Object> mapa = new HashMap<>();
-           mapa.put("id","1");
+        mapa.put("id",idGenerado);
         mapa.put("nombre_usuario",nombre);
         mapa.put("email",email);
         mapa.put("dni",dni);
         mapa.put("perfil", "administrador");
-        firestore.collection("usuario").document().set(mapa).
+        firestore.collection("usuario").document(nombre).set(mapa).
         addOnSuccessListener(aVoid -> Log.d("Firestore","Usuario agregado con éxito")).
          addOnFailureListener(e -> Log.w("Firestore", "Error al agregar usuario"));
 
